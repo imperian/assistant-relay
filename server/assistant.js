@@ -95,6 +95,12 @@ var self = module.exports = {
 
   startConversation: function(conversation, file) {
     let response = {};
+    // For MM:
+    // text -> Text to display, can be Markdown
+    // response_type -> ephemeral or in_channel
+    // username -> Post as user
+    // icon_url -> Icon to use when posting
+    // attachments 
     const fileStream = self.outputFileStream();
     return new Promise((resolve, reject) => {
       conversation.write(file)
@@ -108,6 +114,10 @@ var self = module.exports = {
           if (text) {
             console.log(`Google Assistant: ${text} \n`)
             response.response = text;
+            response.text = text;
+            response.response_type = "in_channel";
+            response.username = "Google Assistant";
+            response.icon_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Google_Assistant_logo.svg/200px-Google_Assistant_logo.svg.png";
             if(returnAudio) {
               self.sendTextInput(`broadcast ${text}`, null, gConfig);
               returnAudio = false;
