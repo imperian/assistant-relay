@@ -6,8 +6,8 @@ const sendAudioInput = require('./assistant').sendAudioInput;
 
 
 routes.post('/broadcast', function(req, res) {
-  let text = req.body.command;
-  let command = "";
+  let text = req.body.text;
+  let command;
   //let broadcast = req.body.broadcast;
   //const user = req.body.user_name;
   const converse = false;
