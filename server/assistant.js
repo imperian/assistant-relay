@@ -113,7 +113,8 @@ var self = module.exports = {
         .on('response', (text) => {
           if (text) {
             console.log(`Google Assistant: ${text} \n`)
-            response.response = text;
+            response.response = "You asked: `" + global.config.conversation.textQuery + "`\n";
+            response.response += "```\n" + text + "\n```";
             response.text = text;
             response.response_type = "in_channel";
             response.username = "Google Assistant";

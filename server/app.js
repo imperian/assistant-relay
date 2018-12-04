@@ -15,6 +15,7 @@ const sendTextInput = require('./assistant').sendTextInput;
 
 const app = express();
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use( function( req, res, next ) {
 	const d = new Date();
