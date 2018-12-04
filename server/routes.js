@@ -12,7 +12,7 @@ routes.post('/broadcast', function(req, res) {
   //const user = req.body.user_name;
   const converse = false;
   
-  if (req.headers.authorization != global.tokens.broadcast) 
+  if (req.headers.authorization != global.config.tokens.broadcast) 
     return res.status(403).json({success: false, error: "Invalid authorization token"});
 
   switch(text) {
@@ -73,7 +73,7 @@ routes.post('/assistant', function (req, res) {
   //const converse = req.body.converse;
   //const preset = req.body.preset;
   
-  if (req.headers.authorization != global.tokens.assistant) 
+  if (req.headers.authorization != global.config.tokens.assistant) 
     return res.status(403).json({success: false, error: "Invalid authorization token"});
 
 
