@@ -115,7 +115,7 @@ var self = module.exports = {
             console.log(`Google Assistant: ${text} \n`)
             response.response = "You asked: `" + global.config.conversation.textQuery + "`\n";
             response.response += "```\n" + text + "\n```";
-            response.text = text;
+            response.text = response.response;
             response.response_type = "in_channel";
             response.username = "Google Assistant";
             response.icon_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Google_Assistant_logo.svg/200px-Google_Assistant_logo.svg.png";
